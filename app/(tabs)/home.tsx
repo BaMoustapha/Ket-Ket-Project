@@ -3,20 +3,13 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 
-
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Image source={require('../../assets/images/icon.png')} style={styles.logo} />
-      <Text style={styles.title}>Ket Ket</Text>
-      <Text style={styles.subtitle}>Wellness at work</Text>
-      <Text style={styles.description}>A partner network for your well-being</Text>
-      <TouchableOpacity style={styles.button} 
-      >
-        <Text style={styles.buttonText}>
-        <Link href="/salle">Start</Link>
-        </Text>
-        
+      <Image source={require('../../assets/images/Logo Ket Ket Bleu 1.png')} style={styles.logo} />
+      <Text style={styles.description}>A partner network for {'\n'} your well-being</Text>
+      <TouchableOpacity style={styles.button}>
+        <Link href="/salle" style={styles.buttonText}>Start</Link>
       </TouchableOpacity>
     </View>
   );
@@ -25,39 +18,37 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#003366',
+    backgroundColor: '#1D428A',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingBottom: 30, 
   },
   logo: {
-    width: 100,
-    height: 100,
-    marginBottom: 20,
-  },
-  title: {
-    fontSize: 32,
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  subtitle: {
-    fontSize: 18,
-    color: '#fff',
+    width: 300,
+    height: 300,
+    marginBottom: 20, 
   },
   description: {
-    fontSize: 16,
+    fontSize: 20,
     color: '#fff',
     textAlign: 'center',
-    marginVertical: 20,
+    marginBottom: 20, 
   },
   button: {
+    position: 'absolute',
+    bottom: 30,
     backgroundColor: '#fff',
     paddingVertical: 10,
-    paddingHorizontal: 40,
-    borderRadius: 5,
+    width: '90%',
+    borderRadius: 15,
+    alignSelf: 'center',
+    paddingHorizontal: 20,
   },
   buttonText: {
     color: '#003366',
-    fontSize: 18,
+    fontSize: 22,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
 });
 
