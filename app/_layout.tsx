@@ -34,6 +34,7 @@ export default function RootLayout() {
         />
         <Stack.Screen name="+not-found" />
         <Stack.Screen name="salle" />
+        <Stack.Screen name="accueillPrincipal" />
       </Stack>
     </ThemeProvider>
   );

@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View, Pressable, Image } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Image, Linking } from 'react-native';
+import {  useRouter } from 'expo-router';
 
 const ProfilImage = require('../../assets/images/fitness.jpg');
 const ProfilImage1 = require('../../assets/images/logoGalsen.jpg');
@@ -8,6 +9,7 @@ const ProfilImage4 = require('../../assets/images/tennis.jpg');
 const ProfilImage5 = require('../../assets/images/yoga.jpg');
 
 export default function acceuil() {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <View style={styles.containerOne}>
@@ -67,8 +69,8 @@ export default function acceuil() {
       </View>
       <View style={styles.imageGroup}>
 
-        <View style={styles.imageActivity}>
-            <Image source={ProfilImage} style={styles.image2} />
+        <View style={styles.imageActivity} onPress={()=> router.push('accueillPrincipal')}>
+              <Image source={ProfilImage} style={styles.image2}  /> 
         </View>
 
         <View style={styles.imageActivity}>
@@ -176,5 +178,6 @@ const styles = StyleSheet.create({
   image2: {
     width: 150,
     height: 300,
+    borderRadius: 5,
   }
 });
