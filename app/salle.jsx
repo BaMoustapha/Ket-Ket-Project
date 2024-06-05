@@ -8,7 +8,7 @@ const Salle = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.imageContainer}>
-        <Image source={require('../assets/images/image 168.png')} style={styles.logo} />
+        <Image source={require('../assets/images/image168.png')} style={styles.logo} />
         <View style={styles.overlay}>
           <View style={styles.overlay1}>
           <AntDesign name="left" size={20} color="white" />

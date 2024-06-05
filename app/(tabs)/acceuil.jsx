@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable, Image, Linking } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Image, Linking, TouchableOpacity } from 'react-native';
 import {  useRouter } from 'expo-router';
 
 const ProfilImage = require('../../assets/images/fitness.jpg');
@@ -69,10 +69,12 @@ export default function acceuil() {
       </View>
       <View style={styles.imageGroup}>
 
-        <View style={styles.imageActivity} onPress={()=> router.push('accueillPrincipal')}>
+      <TouchableOpacity onPress={()=> router.push('accueillPrincipal')}>
+        <View style={styles.imageActivity} >
               <Image source={ProfilImage} style={styles.image2}  /> 
         </View>
-
+        </TouchableOpacity>
+        
         <View style={styles.imageActivity}>
             <Image source={ProfilImage} style={styles.image2} />
         </View>
