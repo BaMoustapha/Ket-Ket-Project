@@ -28,7 +28,7 @@ const activities = () => {
         style={styles.likeButton}
         onPress={() => toggleLike(item.id)}
       >
-        <div style={{
+        <View style={{
         display: 'flex',
         justifyContent: 'center', 
         alignItems: 'center', 
@@ -42,7 +42,7 @@ const activities = () => {
         size={30}
         color={likedActivities[item.id]? 'red' : 'red'}
       />
-    </div>
+    </View>
       </Pressable>
       <Text style={styles.description}>{item.description}</Text>
     </View>
