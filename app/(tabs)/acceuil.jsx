@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Pressable, Image, Linking, TouchableOpacity } from 'react-native';
 import {  useRouter } from 'expo-router';
+import ImageSlider from '../../components/ImageSlider';
 
 const ProfilImage = require('../../assets/images/fitness.jpg');
 const ProfilImage1 = require('../../assets/images/logoGalsen.jpg');
@@ -69,15 +70,20 @@ export default function acceuil() {
       </View>
       <View style={styles.imageGroup}>
 
-      <TouchableOpacity onPress={()=> router.push('accueillPrincipal')}>
+      {/* <TouchableOpacity onPress={()=> router.push('accueillPrincipal')}>
         <View style={styles.imageActivity} >
               <Image source={ProfilImage} style={styles.image2}  /> 
         </View>
         </TouchableOpacity>
-        
+
         <View style={styles.imageActivity}>
             <Image source={ProfilImage} style={styles.image2} />
-        </View>
+        </View> */}
+        <TouchableOpacity onPress={()=> router.push('accueillPrincipal')}>
+            <View>
+              <ImageSlider />
+            </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -101,10 +107,10 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 4,
+    borderRadius: 25,
     width: 100,
     height: 40,
-    backgroundColor: 'blue',
+    backgroundColor: ('90deg, rgba(0,212,255,1) 0%'),
     marginTop: 15,
     // elevation: 3,
   },
