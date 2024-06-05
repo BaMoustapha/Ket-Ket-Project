@@ -34,6 +34,7 @@ export default function RootLayout() {
         />
         <Stack.Screen name="+not-found" />
         <Stack.Screen name="salle" />
+        <Stack.Screen name="activities" options={{ headerShown: false }}/>
         <Stack.Screen name="accueillPrincipal" />
         <Stack.Screen name="login" />
 

@@ -1,103 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput, Image } from 'react-native';
+import { Link } from 'expo-router';
+
+
 
 const HomeScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    // Logique de connexion
-    console.log('Email:', email);
-    console.log('Password:', password);
-  };
-
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.imageContainer}>
-      <Image source={require('../../assets/images/Logo Ket Ket Blanc 2.png')} style={styles.logo} />
-      </View>
-      {/* <Text style={styles.title}>Aperçu</Text>
-      <Text style={styles.subtitle}>
-        Do you dream of transforming your body and adopting a healthier lifestyle? Our fitness program is here to help you achieve your goals, whether you're a beginner or an advanced athlete.
-      </Text> */}
-      
-      <View style={styles.formContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          value={email}
-          onChangeText={setEmail}
-          keyboardType="email-address"
-          autoCapitalize="none"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry
-        />
-        <Text style={styles.subtitle}> Forgot password ?</Text> 
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-          <Text style={styles.title}>Connect with</Text>
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <Image source={require('../../assets/images/Logo Ket Ket Bleu 1.png')} style={styles.logo} />
+      <Text style={styles.description}>A partner network for {'\n'} your well-being</Text>
+      <TouchableOpacity style={styles.button}>
+        <Link href="/activities" style={styles.buttonText}>Start</Link>
+      </TouchableOpacity>
+    </View>
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    backgroundColor: '#fff',
-    padding: 20,
-    justifyContent: 'center',
-  },
-  imageContainer: {
+    flex: 1,
+    backgroundColor: '#1D428A',
     alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: 30, 
   },
   logo: {
-    width: 330,
-    height: 120,
-    borderRadius: 20,
+    width: 300,
+    height: 300,
+    marginBottom: 20, 
   },
-  title: {
-    fontSize: 18,
-    color: 'black',
-    fontWeight: 'bold',
+  description: {
+    fontSize: 20,
+    color: '#fff',
     textAlign: 'center',
-    marginVertical: 20,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: 'red',
-    marginBottom: 20,
-    textAlign: 'right',
-    lineHeight: 24,
-  },
-  formContainer: {
-    marginVertical: 20,
-  },
-  input: {
-    height: 50,
-    borderColor: '#ddd',
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    marginBottom: 15,
-    fontSize: 16,
+    marginBottom: 20, 
   },
   button: {
-    backgroundColor: '#1D428A',
-    paddingVertical: 15,
-    paddingHorizontal: 40,
-    borderRadius: 10,
+    position: 'absolute',
+    bottom: 30,
+    backgroundColor: '#fff',
+    paddingVertical: 10,
+    width: '90%',
+    borderRadius: 15,
     alignSelf: 'center',
+    paddingHorizontal: 20,
   },
   buttonText: {
-    color: '#fff',
-    fontSize: 18,
+    color: '#003366',
+    fontSize: 22,
+    textAlign: 'center',
     fontWeight: 'bold',
   },
 });
