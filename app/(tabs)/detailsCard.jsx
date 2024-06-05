@@ -1,11 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity, Button } from 'react-native';
-import image1 from '../../assets/images/image 168.png'; // Ajustez le chemin selon la structure de votre projet
-import image2 from '../../assets/images/fitfitness.jpg'; // Ajustez le chemin selon la structure de votre projet
-// import card2 from './assets/card2.png';
-// Exemple de données pour les cartes
-// import card1 from './assets/card1.png'; // Ajustez le chemin selon la structure de votre projet
-// import card2 from './assets/card2.png'; // Ajustez le chemin selon la structure de votre projet
+import image1 from '../../assets/images/image168.png'; 
+import image2 from '../../assets/images/fitfitness.jpg';
+
 
 const cardsData = [
   {
