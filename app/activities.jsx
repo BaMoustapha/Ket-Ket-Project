@@ -1,11 +1,8 @@
-// App.js
 import React from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
+import { Link } from 'expo-router';
 
-const HomeScreen = () => {
+const activitiesPage = () => {
   return (
     <ScrollView style={styles.container}>
       <Header />
@@ -18,44 +15,47 @@ const HomeScreen = () => {
 
 const Header = () => (
   <View style={styles.header}>
-    <Image source={require('../assets/images/natation2.jpg')} style={styles.logo} />
+    <Image source={require('../assets/images/Logo Ket Ket Blanc 2.png')} style={styles.logo} />
     <TouchableOpacity style={styles.loginButton}>
-      <Text style={styles.loginText}>Login</Text>
+      <Text style={styles.loginText}>
+        <Link href="/login" style={styles.buttonText}>Login</Link>
+      </Text>
     </TouchableOpacity>
   </View>
 );
 
 const Carousel = () => (
   <View style={styles.carousel}>
-    <Image source={require('../assets/images/natation2.jpg')} style={styles.carouselImage} />
+    <Image source={require('../assets/images/yoga.jpg')} style={styles.carouselImage} />
   </View>
 );
 
 const Categories = () => (
   <View style={styles.categories}>
     <Text style={styles.title}>Our partner structure</Text>
-    <ScrollView horizontal>
-      <CategoryItem source={require('../assets/images/natation2.jpg')} label="All" />
-      <CategoryItem source={require('../assets/images/natation2.jpg')} label="Fitness" />
-      <CategoryItem source={require('../assets/images/natation2.jpg')} label="Massage" />
-    </ScrollView>
+    <View style={styles.category}>
+      <CategoryItem source={require('../assets/images/spa.jpg')} />
+      <CategoryItem source={require('../assets/images/logoGalsen.jpg')} />
+      <CategoryItem source={require('../assets/images/tennis.jpg')} />
+      <CategoryItem source={require('../assets/images/natation1.jpg')} />
+    </View>
   </View>
 );
 
-const CategoryItem = ({ source, label }) => (
+const CategoryItem = ({ source }) => (
   <View style={styles.categoryItem}>
     <Image source={source} style={styles.categoryImage} />
-    <Text style={styles.categoryLabel}>{label}</Text>
   </View>
 );
 
 const Activities = () => (
-  <View style={styles.activities}>
-    <ActivityItem source={require('../assets/images/natation2.jpg')} label="Outdoor Activities" />
-    <ActivityItem source={require('../assets/images/natation2.jpg')} label="Yoga" />
-    <ActivityItem source={require('../assets/images/natation2.jpg')} label="Natation" />
-    <ActivityItem source={require('../assets/images/natation2.jpg')} label="Spa" />
-  </View>
+    <View style={styles.activity}>
+      <ActivityItem source={require('../assets/images/fitness.jpg')} label="Outdoor Activities" />
+      <ActivityItem source={require('../assets/images/natation2.jpg')} label="Yoga" />
+      {/* <ActivityItem source={require('../assets/images/natation2.jpg')} label="Natation" />
+      <ActivityItem source={require('../assets/images/natation2.jpg')} label="Spa" /> */}
+    {/* </ScrollView> */}
+    </View>
 );
 
 const ActivityItem = ({ source, label }) => (
@@ -69,12 +69,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    padding: 20,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 20,
     alignItems: 'center',
+    paddingBottom: 14,
+    marginTop: 10
   },
   logo: {
     width: 100,
@@ -82,54 +84,68 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     backgroundColor: 'black',
+    borderRadius: 8,
     padding: 10,
-    borderRadius: 5,
+    width: 70,
   },
   loginText: {
     color: 'white',
+    alignSelf: 'center',
+    textAlign: 'center',
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   carousel: {
     height: 200,
+    marginBottom: 10
   },
   carouselImage: {
     width: '100%',
     height: '100%',
   },
   categories: {
-    padding: 20,
+    marginBottom: 10
+  },
+  category: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 10
   },
   categoryItem: {
-    alignItems: 'center',
-    marginRight: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 20
   },
   categoryImage: {
     width: 60,
     height: 60,
     borderRadius: 30,
+    marginBottom: 10,
   },
-  categoryLabel: {
-    marginTop: 5,
-  },
-  activities: {
-    padding: 20,
-  },
+
   activityItem: {
-    marginBottom: 20,
+    width: '48%',
+    height: 300,
+    borderRadius: 10,
   },
   activityImage: {
     width: '100%',
-    height: 200,
+    height: '100%',
     borderRadius: 10,
   },
   activityLabel: {
-    marginTop: 10,
     fontSize: 16,
     fontWeight: 'bold',
   },
+  activity: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%'
+  }
 });
 
-export default HomeScreen;
+export default activitiesPage;
