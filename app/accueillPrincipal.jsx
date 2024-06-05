@@ -1,10 +1,10 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import acceuil from '../components/acceuil';
 
-export default function acceuilPrincipal() {
+const AccueilPrincipal = () => {
   return (
-    <View >
-      <acceuil/>
+    <View style={styles.container}>
+      <Text>HELLO</Text>
     </View>
   );
 }
@@ -17,3 +17,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default AccueilPrincipal;
