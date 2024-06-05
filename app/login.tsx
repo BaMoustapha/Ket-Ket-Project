@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput, Image } from 'react-native';
+import { Link } from 'expo-router';
+
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -39,7 +42,9 @@ const Login = () => {
         />
         <Text style={styles.subtitle}> Forgot password ?</Text> 
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Login</Text>
+          <Text>
+              <Link href="/acceuil" style={styles.buttonText}>Login</Link>
+          </Text>
         </TouchableOpacity>
           <Text style={styles.title}>Connect with</Text>
       </View>
