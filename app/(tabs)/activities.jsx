@@ -9,6 +9,10 @@ const activitiesData = [
   { id: '4', image: require('../../assets/images/yoga.jpg'), description: 'Yoga' },
   { id: '5', image: require('../../assets/images/bascket.jpg'), description: 'Basket' },
   { id: '6', image: require('../../assets/images/tennis.jpg'), description: 'Tennis' },
+  { id: '7', image: require('../../assets/images/football.jpg'), description: 'Football' },
+  { id: '8', image: require('../../assets/images/boxe.jpg'), description: 'Boxe' },
+  { id: '9', image: require('../../assets/images/self.jpg'), description: 'Self Défense' },
+  { id: '10', image: require('../../assets/images/rollers.jpg'), description: 'Rollers' },
 ];
 
 const activities = () => {
@@ -28,7 +32,7 @@ const activities = () => {
         style={styles.likeButton}
         onPress={() => toggleLike(item.id)}
       >
-        <div style={{
+        <View style={{
         display: 'flex',
         justifyContent: 'center', 
         alignItems: 'center', 
@@ -42,7 +46,7 @@ const activities = () => {
         size={30}
         color={likedActivities[item.id]? 'red' : 'red'}
       />
-    </div>
+    </View>
       </Pressable>
       <Text style={styles.description}>{item.description}</Text>
     </View>
