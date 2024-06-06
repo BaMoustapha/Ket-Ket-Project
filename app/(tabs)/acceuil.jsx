@@ -1,6 +1,8 @@
-import { StyleSheet, Text, View, Pressable, Image, Linking, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Image, TouchableOpacity } from 'react-native';
 import {  useRouter } from 'expo-router';
 import ImageSlider from '../../components/ImageSlider';
+import ButtonCategories from '../../components/ButtonCategories';
+
 
 const ProfilImage = require('../../assets/images/fitness.jpg');
 const ProfilImage1 = require('../../assets/images/logoGalsen.jpg');
@@ -10,12 +12,12 @@ const ProfilImage4 = require('../../assets/images/tennis.jpg');
 const ProfilImage5 = require('../../assets/images/yoga.jpg');
 
 export default function acceuil() {
-  const router = useRouter();
+  const router = useRouter()
   return (
     <View style={styles.container}>
       <View style={styles.containerOne}>
         <View>
-            <Text style={{ fontSize: 25, fontWeight: 'bold', }}>Hello, Moussa</Text>
+            <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Hello Moussa</Text>
             <View>
                 <Pressable style={styles.button}>
                     <Text style={styles.text}>200 Pts</Text>
@@ -27,7 +29,7 @@ export default function acceuil() {
         </View>
       </View>
       <View style={styles.containerTwo}>
-        <Text style={{ fontSize: 18, fontWeight: 'bold', }}>Our partner structure</Text>
+        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Our partner structure</Text>
       </View>
       <View style={styles.containerTrois}>
         <View style={styles.imageContainer1}>
@@ -47,52 +49,26 @@ export default function acceuil() {
         </View>
       </View>
       <View style={styles.containerTwo}>
-        <Text style={{ fontSize: 18, fontWeight: 'bold', }}>Activities</Text>
         <View style={styles.buttonGroup}>
-            <View>
-                <Pressable style={styles.button1}>
-                    <Text style={styles.text}>All</Text>
-                </Pressable>
-            </View>
-
-            <View>
-                <Pressable style={styles.button2}>
-                    <Text style={styles.text}>Fitness</Text>
-                </Pressable>
-            </View>
-
-            <View>
-                <Pressable style={styles.button2}>
-                    <Text style={styles.text}>Massage</Text>
-                </Pressable>
-            </View>
+            <ButtonCategories/>
         </View>
       </View>
       <View style={styles.imageGroup}>
 
-      {/* <TouchableOpacity onPress={()=> router.push('accueillPrincipal')}>
-        <View style={styles.imageActivity} >
-              <Image source={ProfilImage} style={styles.image2}  /> 
-        </View>
-        </TouchableOpacity>
-
-        <View style={styles.imageActivity}>
-            <Image source={ProfilImage} style={styles.image2} />
-        </View> */}
-        <TouchableOpacity onPress={()=> router.push('accueillPrincipal')}>
-            <View>
-              <ImageSlider />
-            </View>
-        </TouchableOpacity>
+          <View>
+            <TouchableOpacity onPress={()=> router.push('accueillPrincipal')}>
+                <ImageSlider />
+            </TouchableOpacity>
+          </View>
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F6F1EE',
     color: '#000',
     padding: 10,
     
@@ -132,7 +108,7 @@ const styles = StyleSheet.create({
   },
   containerTwo: {
     // backgroundColor: 'red',
-    marginTop: 30,
+    marginTop: 20,
   },
   containerTrois:{
     // flex: 1,

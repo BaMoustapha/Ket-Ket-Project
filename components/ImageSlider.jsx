@@ -2,12 +2,12 @@ import { View, Text } from 'react-native';
 import React from 'react';
 import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { sliderTmages } from '../constants';
+import { sliderImages } from '../constants';
 
 export default function ImageSlider() {
   return (
     <Carousel
-      data={sliderTmages}
+      data={sliderImages}
       loop={true}
       autoplay={true}
       renderItem={ItemCard}
@@ -35,3 +35,61 @@ const ItemCard = ({item, index}, parallaxProps)=>{
 
   )
 }
+
+// import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native'
+// import React from 'react'
+
+// const listingImg = [
+//   {
+//     id: 'card1',
+//     title: 'Titre 1',
+//     description: 'Description 1',
+//     imageUrl: require('../assets/images/image168.png'), // Assurez-vous que le chemin d'accès est correct
+//   },
+//   {
+//     id: 'card2',
+//     title: 'Titre 2',
+//     lieu: 'Description 2',
+//     imageUrl: require('../assets/images/image168.png'), 
+//   },
+//   // Ajoutez plus d'objets ici pour plus de cartes
+// ];
+
+// const ImageSlider = () => {
+//   return (
+//     <View>
+//       {/* ListHeaderComponentStyle={{marginVertical: 10}} */}
+//       ListHeaderComponent={()=>(
+//         <View>
+//           <FlatList
+//           horizontal
+//           style={{ paddingVertical: 5}}
+//           showsHorizontalScrollIndicator={false}
+//           contentContainerStyle={{ gap: 10, paddingHorizontal: 12}}
+//           data={listingImg}
+//           keyExtractor={(item, idx) => item + idx}
+//           renderItem={({item}) => (
+//             <TouchableOpacity style={{
+//               display: "flex",
+//               justifyContent: "center",
+//               flexDirection: "row",
+//               alignItems: "center",
+//               width: 300,
+//               height: 240,
+//               borderRadius: 20
+//              }}>
+
+//             </TouchableOpacity>
+//           )}
+//           />
+//         </View>
+//       )}
+//     </View>
+//   )
+// }
+
+// export default ImageSlider
+
+// const styles = StyleSheet.create({
+
+// })
