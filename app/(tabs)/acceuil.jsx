@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, Pressable, Image, TouchableOpacity } from 'react-native';
-import {  useRouter } from 'expo-router';
+
 import ImageSlider from '../../components/ImageSlider';
 import ButtonCategories from '../../components/ButtonCategories';
+import dataIfo from '../../data/dataIfo.json'
 
 
 const ProfilImage = require('../../assets/images/fitness.jpg');
@@ -12,7 +13,7 @@ const ProfilImage4 = require('../../assets/images/tennis.jpg');
 const ProfilImage5 = require('../../assets/images/yoga.jpg');
 
 export default function acceuil() {
-  const router = useRouter()
+  
   return (
     <View style={styles.container}>
       <View style={styles.containerOne}>
@@ -56,8 +57,8 @@ export default function acceuil() {
       <View style={styles.imageGroup}>
 
           <View>
-            <TouchableOpacity onPress={()=> router.push('accueillPrincipal')}>
-                <ImageSlider />
+            <TouchableOpacity >
+                <ImageSlider listings={dataIfo}/>
             </TouchableOpacity>
           </View>
       </View>
