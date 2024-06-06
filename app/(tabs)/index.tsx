@@ -10,7 +10,7 @@ const HomeScreen = () => {
       <Image source={require('../../assets/images/Logo Ket Ket Bleu 1.png')} style={styles.logo} />
       <Text style={styles.description}>A partner network for {'\n'} your well-being</Text>
       <TouchableOpacity style={styles.button}>
-        <Link href="/AccueilPage" style={styles.buttonText}>Start</Link>
+        <Link href="/homePage" style={styles.buttonText}>Start</Link>
       </TouchableOpacity>
     </View>
   );

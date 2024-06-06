@@ -1,18 +1,13 @@
 import React from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, Pressable } from 'react-native';
 import { Link } from 'expo-router';
-
+import CarouselPage from '../components/Carousel';
 
 const AccueilPage = () => {
-  const carouselImages = [
-    require('../assets/images/yoga.jpg'),  
-    require('../assets/images/fitness.jpg'),
-    require('../assets/images/natation1.jpg'),
-    require('../assets/images/natation2.jpg'),
-  ];
   return (
     <ScrollView style={styles.container}>
       <Header />
+      <CarouselPage />
       <Categories />
       <Buttons />
       <Activities />
@@ -137,6 +132,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 20,
+    marginTop: 15
   },
   header: {
     flexDirection: 'row',
@@ -162,14 +158,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
   },
-  // carousel: {
-  //   height: 200,
-  //   marginBottom: 10
-  // },
-  // carouselImage: {
-  //   width: '100%',
-  //   height: '100%',
-  // },
   categories: {
     marginBottom: 10
   },

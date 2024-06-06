@@ -1,46 +1,120 @@
-import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
+import {
+	FlatList,
+	Image,
+	StyleSheet,
+	Text,
+	View,
+	Dimensions,
+	LogBox,
+} from "react-native";
+import React, { useEffect, useRef, useState } from "react";
 
-const { width: screenWidth } = Dimensions.get('window');
+const CarouselPage = () => {
+	const flatlistRef = useRef();
+	const screenWidth = Dimensions.get("window").width;
+	const [activeIndex, setActiveIndex] = useState(0);
 
-const CarouselComponent = () => {
-  const [entries, setEntries] = useState([
-    { title: 'Image 1', illustration: require('../assets/images/natation2.jpg') },
-    { title: 'Image 2', illustration: require('../assets/images/natation2.jpg') },
-    { title: 'Image 3', illustration: require('../assets/images/natation2.jpg') },
-  ]);
+	const carouselData = [
+		{
+			id: "01",
+			image: require("../assets/images/tennis.jpg"),
+		},
+		{
+			id: "02",
+			image: require("../assets/images/bascket.jpg"),
+		},
+		{
+			id: "03",
+			image: require("../assets/images/yoga.jpg"),
+		},
+	];
 
-  const _renderItem = ({ item, index }) => {
-    return (
-      <View style={styles.slide}>
-        <Image source={item.illustration} style={styles.carouselImage} />
-      </View>
-    );
-  };
+	// Fonction de défilement automatique
+	useEffect(() => {
+		let interval = setInterval(() => {
+			// Arrondir l'index actif au nombre entier le plus proche
+			const nextIndex = Math.round(activeIndex) + 1;
+			if (nextIndex >= carouselData.length) {
+				flatlistRef.current.scrollToIndex({
+					index: 0,
+					animated: true, // Correction ici: Utiliser "animated" au lieu de "animation"
+				});
+				setActiveIndex(0); // Réinitialiser l'index actif à 0
+			} else {
+				flatlistRef.current.scrollToIndex({
+					index: nextIndex,
+					animated: true,
+				});
+				setActiveIndex(nextIndex); // Mettre à jour l'index actif
+			}
+		}, 2000);
 
-  return (
-    <Carousel
-      data={entries}
-      renderItem={_renderItem}
-      sliderWidth={screenWidth}
-      itemWidth={screenWidth}
-      autoplay={true}
-      loop={true}
-    />
-  );
+		return () => clearInterval(interval);
+	}, [activeIndex, carouselData.length]);
+
+	const getItemLayout = (data, index) => ({
+		length: screenWidth,
+		offset: screenWidth * index,
+		index: index,
+	});
+
+	const renderItem = ({ item }) => (
+		<View>
+			<Image
+				source={item.image}
+				style={{ height: 200, width: screenWidth }}
+			/>
+		</View>
+	);
+
+	const handleScroll = (event) => {
+		const scrollPosition = event.nativeEvent.contentOffset.x;
+		const index = scrollPosition / screenWidth;
+
+		setActiveIndex(Math.round(index));
+	};
+
+	const renderDotIndicators = () => {
+		return carouselData.map((dot, index) => (
+			<View
+				key={dot.id}
+				style={{
+					backgroundColor: activeIndex === index ? "green" : "red",
+					height: 10,
+					width: 10,
+					borderRadius: 5,
+					marginHorizontal: 6,
+				}}
+			/>
+		));
+	};
+
+	return (
+		<View>
+			<FlatList
+				data={carouselData}
+				ref={flatlistRef}
+				getItemLayout={getItemLayout}
+				renderItem={renderItem}
+				keyExtractor={(item) => item.id}
+				horizontal={true}
+				pagingEnabled={true}
+				onScroll={handleScroll}
+			/>
+
+			<View
+				style={{
+					flexDirection: "row",
+					justifyContent: "center",
+					marginTop: 10,
+				}}
+			>
+				{renderDotIndicators()}
+			</View>
+		</View>
+	);
 };
 
-const styles = StyleSheet.create({
-  slide: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-  carouselImage: {
-    width: screenWidth,
-    height: 200,
-  },
-});
+export default CarouselPage;
 
-export default CarouselComponent;
+const styles = StyleSheet.create({});
