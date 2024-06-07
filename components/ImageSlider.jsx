@@ -1,95 +1,69 @@
-import { View, Text } from 'react-native';
-import React from 'react';
-import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { sliderImages } from '../constants';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React from 'react'
+import {  useRouter } from 'expo-router'
 
-export default function ImageSlider() {
-  return (
-    <Carousel
-      data={sliderImages}
-      loop={true}
-      autoplay={true}
-      renderItem={ItemCard}
-      hasParallaxImages={true}
-      sliderWidth={wp(500)}
-      firstItem={1}
-      autoplayInterval={4000}
-      itemWidth={wp(100) - 90}
-      sliderStyle={{ display: 'flex', borderRadius:20 }} // Correction ici
-    />
-  );
+type Props ={
+  listings: any[]
 }
 
-const ItemCard = ({item, index}, parallaxProps)=>{
-  return(
-  <View style={{width: wp(100), height: hp(40)}}>
-    <ParallaxImage
-    source={item}
-    containerStyle={{borderRadius:5, flex:1, marginTop: 20}}
-    style={{resizeMode: 'contain'}}
-    parallaxFactor={1}
-    {...parallaxProps}
-    />
-  </View>
+const ImageSlider = ({listings}: Props) => {
+  const router = useRouter()
+  const getImageSource = (imageName) => {
+    switch(imageName) {
+      case 'fitness.jpg':
+        return require('../assets/images/fitness.jpg');
+      // ajoutez d'autres cas pour chaque image
+      case 'image168.png':
+        return require('../assets/images/image168.png');
 
+        case 'spa.jpg':
+        return require('../assets/images/spa.jpg');
+
+        case 'tennis.jpg':
+        return require('../assets/images/tennis.jpg');
+
+        case 'yoga.jpg':
+        return require('../assets/images/yoga.jpg');
+
+        case 'natation1.jpg':
+        return require('../assets/images/natation1.jpg');
+      default:
+        return require('../assets/images/fitfitness.jpg'); // chemin vers une image par défaut
+    }
+  }
+
+  const renderItems = ({ item }) => {
+    const imageSource = getImageSource(item.image);
+
+    return (
+      <TouchableOpacity onPress={()=> router.push('accueillPrincipal')}>
+        <View style={styles.item}>
+          <Image source={imageSource} style={styles.images} />
+        </View>
+      </TouchableOpacity>
+    )
+  }
+
+  return (
+    <View>
+      <FlatList data={listings} renderItem={renderItems} horizontal showsHorizontalScrollIndicator={false} />
+    </View>
   )
 }
 
-// import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native'
-// import React from 'react'
+export default ImageSlider
 
-// const listingImg = [
-//   {
-//     id: 'card1',
-//     title: 'Titre 1',
-//     description: 'Description 1',
-//     imageUrl: require('../assets/images/image168.png'), // Assurez-vous que le chemin d'accès est correct
-//   },
-//   {
-//     id: 'card2',
-//     title: 'Titre 2',
-//     lieu: 'Description 2',
-//     imageUrl: require('../assets/images/image168.png'), 
-//   },
-//   // Ajoutez plus d'objets ici pour plus de cartes
-// ];
-
-// const ImageSlider = () => {
-//   return (
-//     <View>
-//       {/* ListHeaderComponentStyle={{marginVertical: 10}} */}
-//       ListHeaderComponent={()=>(
-//         <View>
-//           <FlatList
-//           horizontal
-//           style={{ paddingVertical: 5}}
-//           showsHorizontalScrollIndicator={false}
-//           contentContainerStyle={{ gap: 10, paddingHorizontal: 12}}
-//           data={listingImg}
-//           keyExtractor={(item, idx) => item + idx}
-//           renderItem={({item}) => (
-//             <TouchableOpacity style={{
-//               display: "flex",
-//               justifyContent: "center",
-//               flexDirection: "row",
-//               alignItems: "center",
-//               width: 300,
-//               height: 240,
-//               borderRadius: 20
-//              }}>
-
-//             </TouchableOpacity>
-//           )}
-//           />
-//         </View>
-//       )}
-//     </View>
-//   )
-// }
-
-// export default ImageSlider
-
-// const styles = StyleSheet.create({
-
-// })
+const styles = StyleSheet.create({
+  item: {
+    // backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 10,
+    marginRight: 5,
+    width: 220
+  },
+  images: {
+    width: 200,
+    height: 260,
+    borderRadius: 10
+  }
+})
