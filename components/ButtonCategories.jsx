@@ -1,9 +1,12 @@
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import React, {useRef, useState} from 'react'
 import buttonCategorie from'../data/categories'
+import {  useRouter } from 'expo-router'
+
 
 
 export default function ButtonCategaries() {
+  const router = useRouter()
 
   // const itemRef = useRef<TouchableOpacity[] | null[]>([]);
   const [ActiveIndex, setActiveIndex] = useState(0)
@@ -15,7 +18,14 @@ export default function ButtonCategaries() {
 
   return (
     <View>
-      <Text style={{ fontSize: 18, fontWeight: 'bold', }}>Activities</Text>
+        <View style={styles.titles}>
+          <Text style={styles.title}>Activities</Text>
+          <TouchableOpacity onPress={()=> router.push('activities')}>
+              
+              <Text style={styles.title2}>See All</Text>
+
+          </TouchableOpacity>
+        </View>
       <ScrollView 
       horizontal 
       showsHorizontalScrollIndicator={false} 
@@ -38,6 +48,21 @@ export default function ButtonCategaries() {
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10
+  },
+  titles: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  },
+  title2: {
+    fontSize: 15,
+    fontWeight: 'semibold',
+    marginTop: 2,
+    color: "#888888"
+  },
   categoryBtn: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -53,7 +78,7 @@ const styles = StyleSheet.create({
   categoryBtnAtive: {
         flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#390050',
+    backgroundColor: '#1D428A',
     paddingHorizontal: 16,
     paddingVertical: 10,
     borderRadius: 10,
