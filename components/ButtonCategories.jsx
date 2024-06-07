@@ -21,9 +21,7 @@ export default function ButtonCategaries() {
         <View style={styles.titles}>
           <Text style={styles.title}>Activities</Text>
           <TouchableOpacity onPress={()=> router.push('activities')}>
-              
               <Text style={styles.title2}>See All</Text>
-
           </TouchableOpacity>
         </View>
       <ScrollView 
