@@ -19,11 +19,6 @@ const Login = () => {
       <View style={styles.imageContainer}>
       <Image source={require('../assets/images/Logo Ket Ket Blanc 2.png')} style={styles.logo} />
       </View>
-      {/* <Text style={styles.title}>Aperçu</Text>
-      <Text style={styles.subtitle}>
-        Do you dream of transforming your body and adopting a healthier lifestyle? Our fitness program is here to help you achieve your goals, whether you're a beginner or an advanced athlete.
-      </Text> */}
-      
       <View style={styles.formContainer}>
         <TextInput
           style={styles.input}
@@ -46,7 +41,7 @@ const Login = () => {
               <Link href="/acceuil" style={styles.buttonText}>Login</Link>
           </Text>
         </TouchableOpacity>
-          <Text style={styles.title}>Connect with</Text>
+          {/* <Text style={styles.title}>Connect with</Text> */}
       </View>
     </ScrollView>
   );

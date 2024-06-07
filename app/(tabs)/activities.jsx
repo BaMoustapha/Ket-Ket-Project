@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, FlatList, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Image, FlatList, Pressable, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 
 const activitiesData = [
   { id: '1', image: require('../../assets/images/fitness.jpg'), description: 'Fitness' },
@@ -15,8 +16,11 @@ const activitiesData = [
   { id: '10', image: require('../../assets/images/rollers.jpg'), description: 'Rollers' },
 ];
 
-const activities = () => {
+const Activities = () => {
   const [likedActivities, setLikedActivities] = useState({});
+  const [searchVisible, setSearchVisible] = useState(false);
+  const [searchText, setSearchText] = useState('');
+  const navigation = useNavigation();
 
   const toggleLike = (id) => {
     setLikedActivities((prevLikedActivities) => ({
@@ -25,31 +29,35 @@ const activities = () => {
     }));
   };
 
+  const filteredActivities = activitiesData.filter(activity =>
+    activity.description.toLowerCase().includes(searchText.toLowerCase())
+  );
+
   const renderItem = ({ item }) => (
-    <View style={styles.card}>
+    <Pressable style={styles.card} onPress={() => navigation.navigate('accueillPrincipal', { item })}>
       <Image source={item.image} style={styles.image} />
       <Pressable
         style={styles.likeButton}
         onPress={() => toggleLike(item.id)}
       >
         <View style={{
-        display: 'flex',
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: '100%', 
-        width: 45, 
-        backgroundColor: 'white', 
-        borderRadius:50
-    }}>
-      <Icon
-        name={likedActivities[item.id]? 'heart' : 'heart-outline'}
-        size={30}
-        color={likedActivities[item.id]? 'red' : 'red'}
-      />
-    </View>
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100%',
+          width: 45,
+          backgroundColor: 'white',
+          borderRadius: 50
+        }}>
+          <Icon
+            name={likedActivities[item.id] ? 'heart' : 'heart-outline'}
+            size={30}
+            color={likedActivities[item.id] ? 'red' : 'red'}
+          />
+        </View>
       </Pressable>
       <Text style={styles.description}>{item.description}</Text>
-    </View>
+    </Pressable>
   );
 
   const renderRow = ({ item }) => (
@@ -66,16 +74,29 @@ const activities = () => {
   );
 
   const pairedActivities = [];
-  for (let i = 0; i < activitiesData.length; i += 2) {
-    pairedActivities.push([activitiesData[i], activitiesData[i + 1]]);
+  for (let i = 0; i < filteredActivities.length; i += 2) {
+    pairedActivities.push([filteredActivities[i], filteredActivities[i + 1]]);
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Icon name="arrow-back" size={24} color="black" />
+        <Pressable  onPress={() => navigation.goBack()}>
+          <Icon name="arrow-back" size={24} color="black" />
+        </Pressable>
         <Text style={styles.title}>Activities</Text>
+        <Pressable onPress={() => setSearchVisible(!searchVisible)} style={styles.searchIcon}>
+          <Icon name="search" size={24} color="black" />
+        </Pressable>
       </View>
+      {searchVisible && (
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search activities..."
+          value={searchText}
+          onChangeText={setSearchText}
+        />
+      )}
       <FlatList
         data={pairedActivities}
         renderItem={renderRow}
@@ -94,12 +115,24 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: 16,
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
     marginLeft: 8,
+  },
+  searchIcon: {
+    marginRight: 8,
+  },
+  searchBar: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    marginBottom: 16,
   },
   row: {
     flexDirection: 'row',
@@ -135,4 +168,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default activities;
+export default Activities;
