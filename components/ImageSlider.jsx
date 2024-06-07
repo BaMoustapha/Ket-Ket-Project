@@ -1,6 +1,9 @@
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import {  useRouter } from 'expo-router'
+// import { AntDesign, Feather } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+
 
 type Props ={
   listings: any[]
@@ -10,8 +13,6 @@ const ImageSlider = ({listings}: Props) => {
   const router = useRouter()
   const getImageSource = (imageName) => {
     switch(imageName) {
-      case 'fitness.jpg':
-        return require('../assets/images/fitness.jpg');
       // ajoutez d'autres cas pour chaque image
       case 'image168.png':
         return require('../assets/images/image168.png');
@@ -36,11 +37,20 @@ const ImageSlider = ({listings}: Props) => {
     const imageSource = getImageSource(item.image);
 
     return (
-      <TouchableOpacity onPress={()=> router.push('accueillPrincipal')}>
         <View style={styles.item}>
           <Image source={imageSource} style={styles.images} />
+          <View style={styles.overlay}>
+          <View style={styles.overlay2}>
+          <Text style={styles.overlayText}> {item.name} </Text>
+          <View style={styles.textbottom}>
+            <View style={styles.adresse}>
+              <Text style={styles.overlaySubText}><AntDesign name="staro" style={{marginLeft: 50}} size={18} color="#ccc" /> {item.rating} </Text>
+            </View>
+          </View>
         </View>
-      </TouchableOpacity>
+        </View>
+        </View>
+
     )
   }
 
@@ -58,12 +68,40 @@ const styles = StyleSheet.create({
     // backgroundColor: '#fff',
     padding: 10,
     borderRadius: 10,
-    marginRight: 5,
+    marginRight: 50,
     width: 220
   },
   images: {
-    width: 200,
-    height: 260,
+    width: 235,
+    height: 243,
     borderRadius: 10
-  }
+  },
+  overlay:{
+    position: 'absolute',
+    flexDirection: "column",
+    justifyContent: 'space-between',
+    gap: 100,
+    padding: 20,
+    width: 250,
+    height: 400
+  },
+  overlay2: {
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    padding: 18,
+    marginTop: 150,
+    borderRadius: 20,
+    display: 'flex',
+    flexDirection: "row",
+    justifyContent: 'space-between'
+  },
+  overlayText: {
+    color: '#fff',
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  overlaySubText: {
+    color: '#ccc',
+    fontSize: 10,
+  },
 })

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Pressable, Image, TouchableOpacity } from 'react-native';
-
+import { Ionicons } from '@expo/vector-icons';
 import ImageSlider from '../../components/ImageSlider';
 import ButtonCategories from '../../components/ButtonCategories';
 import dataIfo from '../../data/dataIfo.json'
@@ -26,11 +26,17 @@ export default function acceuil() {
             </View>
         </View>
         <View style={styles.imageContainer}>
-            <Image source={ProfilImage} style={styles.image} />
+          <View style={{ marginTop: 13, marginRight: 16}}>
+          <Ionicons name="notifications-outline" size={28} color="black" />          
+          </View>
+        <Image source={ProfilImage} style={styles.image} />
         </View>
       </View>
       <View style={styles.containerTwo}>
-        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Our partner structure</Text>
+        <View style={styles.titles}>
+          <Text style={styles.title}>Our partner structure</Text>
+          <Text style={styles.title2}>See All</Text>
+        </View>
       </View>
       <View style={styles.containerTrois}>
         <View style={styles.imageContainer1}>
@@ -57,9 +63,7 @@ export default function acceuil() {
       <View style={styles.imageGroup}>
 
           <View>
-            <TouchableOpacity >
                 <ImageSlider listings={dataIfo}/>
-            </TouchableOpacity>
           </View>
       </View>
     </View>
@@ -73,6 +77,22 @@ const styles = StyleSheet.create({
     color: '#000',
     padding: 10,
     
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10
+  },
+  titles: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  marginTop: 30
+  },
+  title2: {
+    fontSize: 15,
+    fontWeight: 'semibold',
+    marginTop: 2,
+    color: "#888888"
   },
   containerOne: {
     // flex: 1,
@@ -100,22 +120,24 @@ const styles = StyleSheet.create({
   },
   imageContainer :{
     marginTop: 15,
+    flexDirection: "row"
   },
   image: {
-    width: 65,
-    height: 65,
+    width: 50,
+    height: 50,
     borderRadius: 35,
-    marginTop: 13,
+    marginTop: 2,
   },
   containerTwo: {
     // backgroundColor: 'red',
-    marginTop: 20,
+    marginTop: 5,
   },
   containerTrois:{
     // flex: 1,
     flexDirection: 'row',
     justifyContent: "space-between",
-    margin: 5,
+    gap: 5,
+    marginBottom: 10
     // backgroundColor: 'red'
   },
   image1: {

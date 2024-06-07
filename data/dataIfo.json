@@ -1,90 +1,74 @@
 [
     {
       "id": "1",
-      "name": "Tropical Paradise Resort",
+      "name": "Fitness",
       "image": "fitness.jpg",
       "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
       "rating": 4.8,
-      "price": "150",
-      "duration": "3",
-      "location": "Pacific Ocean",
-      "category": "Beaches"
+      "lieu": "Dakar, Sacré coeur",
+      "category": "Fitness"
     },
     {
       "id": "1",
-      "name": "Tropical Paradise Resort",
-      "image": "fitfitness.jpg",
-      "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
-      "rating": 4.8,
-      "price": "150",
-      "duration": "3",
-      "location": "Pacific Ocean",
-      "category": "Beaches"
-    },
-    {
-      "id": "1",
-      "name": "Tropical Paradise Resort",
+      "name": "Galsen Fit",
       "image": "image168.png",
       "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
       "rating": 4.8,
-      "price": "150",
-      "duration": "3",
-      "location": "Pacific Ocean",
-      "category": "Beaches"
+      "lieu": "Dakar, Sacré coeur",
+      "category": "Fitness"
     },
     {
       "id": "1",
-      "name": "Tropical Paradise Resort",
+      "name": "spa Dakar",
       "image": "spa.jpg",
       "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
       "rating": 4.8,
-      "price": "150",
-      "duration": "3",
-      "location": "Pacific Ocean",
-      "category": "Beaches"
+      "lieu": "Dakar, Sacré coeur",
+      "category": "spa"
     },
     {
       "id": "1",
-      "name": "Tropical Paradise Resort",
+      "name": "fit'fitness",
+      "image": "fitfitness.jpg",
+      "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
+      "rating": 4.8,
+      "lieu": "Dakar, Sacré coeur",
+      "category": "Fitness"
+    },
+    {
+      "id": "1",
+      "name": "Tennis club sporting",
       "image": "tennis.jpg",
       "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
       "rating": 4.8,
-      "price": "150",
-      "duration": "3",
-      "location": "Pacific Ocean",
-      "category": "Beaches"
+      "lieu": "Dakar, Sacré coeur",
+      "category": "Tennis"
     },
     {
       "id": "1",
-      "name": "Tropical Paradise Resort",
+      "name": "Momie",
       "image": "yoga.jpg",
       "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
       "rating": 4.8,
-      "price": "150",
-      "duration": "3",
-      "location": "Pacific Ocean",
-      "category": "Beaches"
+      "lieu": "Dakar, Sacré coeur",
+      "category": "Yoga"
     },
     {
       "id": "1",
-      "name": "Tropical Paradise Resort",
+      "name": "Olympique Club",
       "image": "natation1.jpg",
       "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
       "rating": 4.8,
-      "price": "150",
-      "duration": "3",
-      "location": "Pacific Ocean",
-      "category": "Beaches"
+      "lieu": "Dakar, Sacré coeur",
+      "category": "natation"
     },
     {
       "id": "1",
-      "name": "Tropical Paradise Resort",
+      "name": "Fitness",
       "image": "natation2.jpg",
       "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
       "rating": 4.8,
-      "price": "150",
-      "duration": "3",
-      "location": "Pacific Ocean",
-      "category": "Beaches"
+      "lieu": "Dakar, Sacré coeur",
+      "category": "natation"
     }
   ]
