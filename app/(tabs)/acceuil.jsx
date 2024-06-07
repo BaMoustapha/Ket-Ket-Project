@@ -11,6 +11,8 @@ const ProfilImage2 = require('../../assets/images/logo-fitness.png');
 const ProfilImage3 = require('../../assets/images/spa.jpg');
 const ProfilImage4 = require('../../assets/images/tennis.jpg');
 const ProfilImage5 = require('../../assets/images/yoga.jpg');
+const ProfilImage6 = require('../../assets/images/medal.png');
+
 
 export default function acceuil() {
   
@@ -21,6 +23,7 @@ export default function acceuil() {
             <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Hello Moussa</Text>
             <View>
                 <Pressable style={styles.button}>
+                    <Image source={ProfilImage6} style={styles.imageLogo}  />
                     <Text style={styles.text}>200 Pts</Text>
                 </Pressable>
             </View>
@@ -61,7 +64,6 @@ export default function acceuil() {
         </View>
       </View>
       <View style={styles.imageGroup}>
-
           <View>
                 <ImageSlider listings={dataIfo}/>
           </View>
@@ -103,13 +105,18 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
+    flexDirection: 'row',
     justifyContent: 'center',
     borderRadius: 25,
     width: 100,
-    height: 40,
-    backgroundColor: ('90deg, rgba(0,212,255,1) 0%'),
+    height: 45,
+    backgroundColor: ('90deg, rgba(0,100,255,1)'),
     marginTop: 15,
     // elevation: 3,
+  },
+  imageLogo:{
+    width: 30,
+    height: 23
   },
   text: {
     fontSize: 16,

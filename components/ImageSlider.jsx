@@ -38,7 +38,9 @@ const ImageSlider = ({listings}: Props) => {
 
     return (
         <View style={styles.item}>
-          <Image source={imageSource} style={styles.images} />
+          <TouchableOpacity onPress={()=> router.push('salle')}>
+            <Image source={imageSource} style={styles.images} />
+          </TouchableOpacity>
           <View style={styles.overlay}>
           <View style={styles.overlay2}>
           <Text style={styles.overlayText}> {item.name} </Text>
