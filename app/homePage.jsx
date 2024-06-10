@@ -2,6 +2,11 @@ import React from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, Pressable } from 'react-native';
 import { Link } from 'expo-router';
 import CarouselPage from '../components/Carousel';
+import ButtonCategaries from '../components/ButtonCategories';
+import ImageSlider from '../components/ImageSlider';
+import dataIfo from '../data/dataIfo.json'
+
+
 
 const AccueilPage = () => {
   return (
@@ -9,71 +14,11 @@ const AccueilPage = () => {
       <Header />
       <CarouselPage />
       <Categories />
-      <Buttons />
-      <Activities />
+      <ButtonCategaries />
+      <ImageSlider listings={dataIfo}/>
     </ScrollView>
   );
 };
-
-// const ImageCarousel = ({ images }) => {
-//   const [activeSlide, setActiveSlide] = React.useState(0);
-
-//   const renderItem = ({ item }) => (
-//     <Image source={item} style={{ width: 200, height: 200 }} />
-//   );
-
-//   return (
-//     <View>
-//       <Carousel
-//         data={images}
-//         renderItem={renderItem}
-//         sliderWidth={300}
-//         itemWidth={200}
-//         layout={'default'}
-//         loop={true}
-//         onSnapToItem={(index) => setActiveSlide(index)}
-//       />
-//       <Pagination
-//         dotsLength={images.length}
-//         activeDotIndex={activeSlide}
-//         containerStyle={{ position: 'absolute', bottom: 10, alignSelf: 'center' }}
-//         dotStyle={{ width: 10, height: 10, borderRadius: 5, backgroundColor: 'red' }}
-//         inactiveDotOpacity={0.4}
-//         inactiveDotScale={0.6}
-//       />
-//     </View>
-//   );
-// };
-
-const Buttons = () => {
-  return(
-    <View style={styles.containerTwo}>
-        <View style={styles.titles}>
-            <Text style={styles.title}>Our partner structure</Text>
-            <Text style={styles.title2}>See All</Text>
-        </View>
-        <View style={styles.buttonGroup}>
-            <View>
-                <Pressable style={styles.button1}>
-                    <Text style={styles.text}>All</Text>
-                </Pressable>
-            </View>
-
-            <View>
-                <Pressable style={styles.button2}>
-                    <Text style={styles.text}>Fitness</Text>
-                </Pressable>
-            </View>
-
-            <View>
-                <Pressable style={styles.button2}>
-                    <Text style={styles.text}>Massage</Text>
-                </Pressable>
-            </View>
-        </View>
-      </View>
-  )
-}
 
 const Header = () => (
   <View style={styles.header}>
@@ -85,12 +30,6 @@ const Header = () => (
     </TouchableOpacity>
   </View>
 );
-
-// const Carousel = () => (
-//   <View style={styles.carousel}>
-//     <Image source={require('../assets/images/yoga.jpg')} style={styles.carouselImage} />
-//   </View>
-// );
 
 const Categories = () => (
   <View style={styles.categories}>
@@ -113,41 +52,25 @@ const CategoryItem = ({ source }) => (
   </View>
 );
 
-const Activities = () => (
-    <View style={styles.activity}>
-      <ActivityItem source={require('../assets/images/fitness.jpg')} label="Fitness" />
-      <ActivityItem source={require('../assets/images/natation2.jpg')} label="Natation" />
-    </View>
-);
-
-const ActivityItem = ({ source, label }) => (
-  <View style={styles.activityItem}>
-    <Image source={source} style={styles.activityImage} />
-    <Text style={styles.activityLabel}>{label}</Text>
-  </View>
-);
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: 20,
-    marginTop: 15
+    padding: 15,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingBottom: 14,
+    paddingBottom: 16,
     marginTop: 10
   },
   logo: {
-    width: 100,
+    width: 130,
     height: 40,
   },
   loginButton: {
     backgroundColor: 'black',
-    borderRadius: 8,
+    borderRadius: 20,
     padding: 10,
     width: 70,
   },
@@ -179,31 +102,6 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-  },
-
-  activityItem: {
-    width: '48%',
-    height: 208,
-    borderRadius: 10,
-  },
-  activityImage: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 10,
-  },
-  activityLabel: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
-    position: 'absolute',
-    bottom: 20,
-    alignSelf: 'center',
-
-  },
-  activity: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%'
   },
   button: {
     alignItems: 'center',

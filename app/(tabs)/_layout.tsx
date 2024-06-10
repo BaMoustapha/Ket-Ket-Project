@@ -18,6 +18,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
+          headerShown: false,
           tabBarStyle:{display: 'none'},
           href: null,
           tabBarIcon: ({ color, focused }) => (
@@ -29,15 +30,6 @@ export default function TabLayout() {
         name="activities"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="house"
-        options={{
-          title: 'Accueil',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
