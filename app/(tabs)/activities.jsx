@@ -4,16 +4,16 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
 const activitiesData = [
-  { id: '1', image: require('../assets/images/fitness.jpg'), description: 'Fitness' },
-  { id: '2', image: require('../assets/images/spa.jpg'), description: 'Spa' },
-  { id: '3', image: require('../assets/images/natation1.jpg'), description: 'Swimming' },
-  { id: '4', image: require('../assets/images/yoga.jpg'), description: 'Yoga' },
-  { id: '5', image: require('../assets/images/bascket.jpg'), description: 'Basket' },
-  { id: '6', image: require('../assets/images/tennis.jpg'), description: 'Tennis' },
-  { id: '7', image: require('../assets/images/football.jpg'), description: 'Football' },
-  { id: '8', image: require('../assets/images/boxe.jpg'), description: 'Boxe' },
-  { id: '9', image: require('../assets/images/self.jpg'), description: 'Self Défense' },
-  { id: '10', image: require('../assets/images/rollers.jpg'), description: 'Rollers' },
+  { id: '1', image: require('../../assets/images/fitness.jpg'), description: 'Fitness' },
+  { id: '2', image: require('../../assets/images/spa.jpg'), description: 'Spa' },
+  { id: '3', image: require('../../assets/images/natation1.jpg'), description: 'Swimming' },
+  { id: '4', image: require('../../assets/images/yoga.jpg'), description: 'Yoga' },
+  { id: '5', image: require('../../assets/images/bascket.jpg'), description: 'Basket' },
+  { id: '6', image: require('../../assets/images/tennis.jpg'), description: 'Tennis' },
+  { id: '7', image: require('../../assets/images/football.jpg'), description: 'Football' },
+  { id: '8', image: require('../../assets/images/boxe.jpg'), description: 'Boxe' },
+  { id: '9', image: require('../../assets/images/self.jpg'), description: 'Self Défense' },
+  { id: '10', image: require('../../assets/images/rollers.jpg'), description: 'Rollers' },
 ];
 
 const Activities = () => {

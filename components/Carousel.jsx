@@ -17,15 +17,34 @@ const CarouselPage = () => {
 	const carouselData = [
 		{
 			id: "01",
-			image: require("../assets/images/tennis.jpg"),
+			image: require("../assets/images/image03.jpg"),
 		},
 		{
 			id: "02",
-			image: require("../assets/images/bascket.jpg"),
+			image: require("../assets/images/image11.jpg"),
 		},
 		{
 			id: "03",
-			image: require("../assets/images/yoga.jpg"),
+			image: require("../assets/images/image12.jpg"),
+		},
+		{
+			id: "04",
+			image: require("../assets/images/image01.jpg"),
+		},
+		{
+			id: "05",
+			image: require("../assets/images/image05.jpg"),
+		},
+		{
+			id: "06",
+			image: require("../assets/images/image06.jpg"),
+		},
+		{
+			id: "07",
+			image: require("../assets/images/image10.jpg"),
+		},{
+			id: "08",
+			image: require("../assets/images/image08.jpg"),
 		},
 	];
 
@@ -70,7 +89,6 @@ const CarouselPage = () => {
 	const handleScroll = (event) => {
 		const scrollPosition = event.nativeEvent.contentOffset.x;
 		const index = scrollPosition / screenWidth;
-
 		setActiveIndex(Math.round(index));
 	};
 
@@ -79,9 +97,9 @@ const CarouselPage = () => {
 			<View
 				key={dot.id}
 				style={{
-					backgroundColor: activeIndex === index ? "green" : "red",
-					height: 10,
-					width: 10,
+					backgroundColor: activeIndex === index ? "blue" : "gray",
+					height: 8,
+					width: 8,
 					borderRadius: 5,
 					marginHorizontal: 6,
 				}}
@@ -106,7 +124,7 @@ const CarouselPage = () => {
 				style={{
 					flexDirection: "row",
 					justifyContent: "center",
-					marginTop: 10,
+					bottom: 20
 				}}
 			>
 				{renderDotIndicators()}

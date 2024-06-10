@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   categoryBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#f0f0f0',
     paddingHorizontal: 16,
     paddingVertical: 10,
     borderRadius: 10,

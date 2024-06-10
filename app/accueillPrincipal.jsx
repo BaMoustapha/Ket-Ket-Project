@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity, Button } from 'react-native';
-import image1 from '../../assets/images/image168.png'; 
-import image2 from '../../assets/images/fitfitness.jpg';
+import image1 from '../assets/images/image168.png'; 
+import image2 from '../assets/images/fitfitness.jpg';
 
 
 const cardsData = [
