@@ -38,6 +38,7 @@ export default function RootLayout() {
         <Stack.Screen name="homePage" options={{ headerShown: false }} />
         <Stack.Screen name="login" options={{ headerShown: false }} />
         <Stack.Screen name="activities" options={{ headerShown: false }} />
+        <Stack.Screen name="accueillPrincipal" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );

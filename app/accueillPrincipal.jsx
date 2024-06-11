@@ -1,7 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity, Pressable } from 'react-native';
 import image1 from '../assets/images/image168.png'; 
 import image2 from '../assets/images/fitfitness.jpg';
+import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+
 
 
 const cardsData = [
@@ -22,8 +26,10 @@ const cardsData = [
 
 
 export default function Acceuil() {
+  const navigation = useNavigation();
+
     const renderItem = ({ item }) => (
-      <TouchableOpacity onPress={() => console.log('Card pressed')}>
+      <TouchableOpacity onPress={() => navigation.navigate('salle')}>
         <View style={styles.cardContainer}>
           <Image source={item.imageUrl} style={styles.cardImage} />
           
@@ -45,7 +51,12 @@ export default function Acceuil() {
   
     return (
       <View style={styles.container}>
-        <Text style={styles.header}>Activités</Text>
+        <View style={styles.header}>
+            <Pressable  onPress={() => navigation.goBack()}>
+              <Icon name="arrow-back" size={24} color="black" />
+            </Pressable>
+            <Text style={styles.title}>Fitness</Text>
+        </View>
         <FlatList
           data={cardsData}
           renderItem={renderItem}
@@ -61,12 +72,19 @@ const styles = StyleSheet.create({
       flex: 1,
       paddingHorizontal: 25,
       backgroundColor: '#F6F1EE',
+      marginTop: 35
     },
     header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginTop: 30,
+      marginBottom: 16,
+      gap: 50
+    },
+    title:{
       fontSize: 18,
       fontWeight: 'bold',
-      marginBottom: 20,
-      marginTop: 25
+
     },
     cardContainer: {
       backgroundColor: '#fff',

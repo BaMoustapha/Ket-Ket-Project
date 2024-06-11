@@ -1,17 +1,22 @@
 // screens/HomeScreen.tsx
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Pressable } from 'react-native';
 import { AntDesign, Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+
 
 
 const Salle = () => {
+  const navigation = useNavigation();
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.imageContainer}>
         <Image source={require('../assets/images/image168.png')} style={styles.logo} />
         <View style={styles.overlay}>
           <View style={styles.overlay1}>
-          <AntDesign name="left" size={20} color="white" />
+              <Pressable  onPress={() => navigation.goBack()}>
+                  <AntDesign name="left" size={20} color="white" />
+              </Pressable>
           </View>
           <View style={styles.overlay2}>
           <Text style={styles.overlayText}>Galsenfit</Text>
@@ -56,6 +61,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     position: 'relative',
+    marginTop: 35,
   },
   logo: {
     width: '100%',
@@ -104,7 +110,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: 20,
+    marginTop: 20,
   },
   icon: {
     backgroundColor: '#e5e7e6',
@@ -119,7 +125,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18,
     color: '#666',
-    marginBottom: 20,
+    marginVertical: 30,
     lineHeight: 24,
     alignSelf: 'center'
   },

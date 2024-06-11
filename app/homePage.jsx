@@ -8,6 +8,7 @@ import dataIfo from '../data/dataIfo.json'
 
 
 
+
 const AccueilPage = () => {
   return (
     <ScrollView style={styles.container}>
@@ -57,12 +58,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 15,
+    marginTop: 30,
+
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingBottom: 16,
-    marginTop: 10
   },
   logo: {
     width: 130,
