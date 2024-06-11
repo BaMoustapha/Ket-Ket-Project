@@ -1,0 +1,65 @@
+[
+    {
+      "id": "1",
+      "name": "Galsen Fit",
+      "image": "image168.png",
+      "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
+      "rating": 4.8,
+      "lieu": "Dakar, Sacré coeur",
+      "category": "Fitness"
+    },
+    {
+      "id": "1",
+      "name": "spa Dakar",
+      "image": "spa.jpg",
+      "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
+      "rating": 4.8,
+      "lieu": "Dakar, Sacré coeur",
+      "category": "spa"
+    },
+    {
+      "id": "1",
+      "name": "fit'fitness",
+      "image": "fitfitness.jpg",
+      "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
+      "rating": 4.8,
+      "lieu": "Dakar, Sacré coeur",
+      "category": "Fitness"
+    },
+    {
+      "id": "1",
+      "name": "Tennis club sporting",
+      "image": "tennis.jpg",
+      "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
+      "rating": 4.8,
+      "lieu": "Dakar, Sacré coeur",
+      "category": "Tennis"
+    },
+    {
+      "id": "1",
+      "name": "Momie",
+      "image": "yoga.jpg",
+      "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
+      "rating": 4.8,
+      "lieu": "Dakar, Sacré coeur",
+      "category": "Yoga"
+    },
+    {
+      "id": "1",
+      "name": "Olympique Club",
+      "image": "natation1.jpg",
+      "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
+      "rating": 4.8,
+      "lieu": "Dakar, Sacré coeur",
+      "category": "natation"
+    },
+    {
+      "id": "1",
+      "name": "Fitness",
+      "image": "natation2.jpg",
+      "description": "Escape to the ultimate tropical paradise retreat with pristine beaches, lush greenery, and luxurious accommodations.",
+      "rating": 4.8,
+      "lieu": "Dakar, Sacré coeur",
+      "category": "natation"
+    }
+  ]
